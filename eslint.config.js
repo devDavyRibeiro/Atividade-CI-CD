@@ -6,7 +6,7 @@ import js from "@eslint/js";
 export default [
   // arquivos/paths a ignorar
   {
-    ignores: ["node_modules/**", "coverage/**", "dist/**"]
+    ignores: ["node_modules/**", "coverage/**", "dist/**","tests/**"]
   },
 
   // regras recomendadas do ESLint
