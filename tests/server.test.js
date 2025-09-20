@@ -10,12 +10,12 @@ request.describe("Items API", () => {
     request.expect(res.body.ok).toBe(true);
   });
 
-  //it("POST /items cria item", async () => {
-  //  const res = await request(app).post("/items").send({ name: "caderno", quantity: 2 });
-  //  expect(res.status).toBe(201);
-  //  expect(res.body).toMatchObject({ name: "caderno", quantity: 2 });
-  //  expect(res.body.id).toBeDefined();
-  //});
+  it("POST /items cria item", async () => {
+   const res = await request(app).post("/items").send({ name: "caderno", quantity: 2 });
+   expect(res.status).toBe(201);
+   expect(res.body).toMatchObject({ name: "caderno", quantity: 2 });
+   expect(res.body.id).toBeDefined();
+  });
 
   request.it("GET /items lista ao menos 1", async () => {
     const res = await request(app).get("/items");
