@@ -170,31 +170,20 @@ jobs:
       - name: Enviar email se falhar
         if: failure()
         uses: dawidd6/action-send-mail@v3
-        
         with:
-          server_port: 465
           server_address: smtp.gmail.com
-          secure: true
-          # Optional (recommended) mail server username:
-          username: ${{secrets.EMAIL}}
-          # Optional (recommended) mail server password:
-          password: ${{secrets.SENHA}}
-          # Required mail subject:
-          subject: Github Actions job result
-          # Required recipients' addresses:
-          to: davy.oliv.ribeiro@gmail.com
-          # Required sender full name (address can be skipped):
-          from: Davy Ribeiro # <user@example.com>
-          # Optional plain body:
+          server_port: 465
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.EMAIL }}
+          subject: "Relatório do Workflow"
+          to: "davy.oliv.ribeiro@gmail.com"
+          from: "GitHub Actions <${{ secrets.EMAIL }}>"
           body: |
             <h1 style="color:#2E86C1;">Build job of ${{github.repository}} failure!</h1>
             <h4>Commit: ${{ github.sha }}</h4>
             <h4>Workflow: ${{ github.workflow }}</h4>
             <h4>Job: ${{ github.job }}</h4>
             <h4>Veja os logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</h4>
-          
-
-          envelope_to: mailer@example.com,admin@example.com
       # Cadastrar os dados para envio de e-mail e recupera-los aqui 
       # Ex.: SMTP DO SERVIDOR DE E-MAIL / PORTA / USUARIO / SENHA / EMAIL E API/TOKEN PARA ENVIO DE E-MAIL)
       # No gmail há uma configuração para geração de secret para envio de e-mails por aplicativos terceiros
