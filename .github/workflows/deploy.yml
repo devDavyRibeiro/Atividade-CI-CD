@@ -175,7 +175,7 @@ jobs:
           username: ${{ secrets.EMAIL }}
           password: ${{ secrets.SENHA }}
           subject: "Relatório do Workflow"
-          to: "davy.oliv.ribeiro@gmail.com"
+          to: "fe.dsm.vot.001@gmail.com"
           from: "GitHub Actions <${{ secrets.EMAIL }}>"
           html_body: |
             <h1 style="color:#2E86C1;">Build job of ${{github.repository}} failure!</h1>
