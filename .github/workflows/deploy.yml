@@ -177,8 +177,7 @@ jobs:
           subject: "Relatório do Workflow"
           to: "davy.oliv.ribeiro@gmail.com"
           from: "GitHub Actions <${{ secrets.EMAIL }}>"
-          content_type: text/html
-          body: |
+          html_body: |
             <h1 style="color:#2E86C1;">Build job of ${{github.repository}} failure!</h1>
             <h4>Commit: ${{ github.sha }}</h4>
             <h4>Workflow: ${{ github.workflow }}</h4>
