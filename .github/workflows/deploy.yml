@@ -157,7 +157,6 @@ jobs:
           else
             git tag "v${NEW_VERSION}"
           fi
-
           # Push do commit para main
           git push origin HEAD:main
 
