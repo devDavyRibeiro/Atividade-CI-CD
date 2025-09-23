@@ -179,11 +179,25 @@ jobs:
           # Optional (recommended) mail server password:
           password: ${{secrets.SENHA}}
           # Required mail subject:
-          subject: Github Actions Failure
+          subject: Github Actions job result
           # Required recipients' addresses:
           to: davy.oliv.ribeiro@gmail.com
           # Required sender full name (address can be skipped):
           from: Davy Ribeiro # <user@example.com>
           # Optional plain body:
-          content_type: text/html
-          body: Build job of ${{github.repository}} failure!
+          body: |
+            <h1 style="color:#2E86C1;">Build job of ${{github.repository}} failure!</h1>
+            <h4>Commit: ${{ github.sha }}</h4>
+            <h4>Workflow: ${{ github.workflow }}</h4>
+            <h4>Job: ${{ github.job }}</h4>
+            <h4>Veja os logs: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}</h4>
+          
+
+          envelope_to: mailer@example.com,admin@example.com
+      # Cadastrar os dados para envio de e-mail e recupera-los aqui 
+      # Ex.: SMTP DO SERVIDOR DE E-MAIL / PORTA / USUARIO / SENHA / EMAIL E API/TOKEN PARA ENVIO DE E-MAIL)
+      # No gmail há uma configuração para geração de secret para envio de e-mails por aplicativos terceiros
+      # E-mail deve ser enviado para: fe.dsm.vot.001@gmail.com
+      # Assunto: Falha pipeline Actions
+      # Conteúdo: 
+
