@@ -24,7 +24,7 @@ jobs:
         run: npm install -g semver       
 
       - name: Build
-        run: npm run build
+        run: npm build
 
       - name: Testes
         run: npm test -- --coverage
@@ -167,7 +167,7 @@ jobs:
 
       # Envio de e-mail EM CASO DE FALHA no pipeline
       - name: Enviar email se falhar
-        #if: failure()
+        if: failure()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
